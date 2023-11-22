@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="client_car_make_bmw_demo" model="car.service.client.car.make">
+        <field name="name">BMW</field>
+    </record>
+
+    <record id="client_car_make_porsche_demo" model="car.service.client.car.make">
+        <field name="name">Porsche</field>
+    </record>
+
+    <record id="client_car_make_lotus_demo" model="car.service.client.car.make">
+        <field name="name">Lotus</field>
+    </record>
+
+</odoo>

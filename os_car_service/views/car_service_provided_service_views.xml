@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Provided Service Form -->
+    <record id="view_car_service_provided_service_form" model="ir.ui.view">
+        <field name="name">car.service.provided.service.form</field>
+        <field name="model">car.service.provided.service</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="set_date"/>
+                        <field name="client_id"/>
+                        <field name="possible_car_ids" invisible="True"/>
+                        <field name="car_id" domain="[('id', 'in', possible_car_ids)]"/>
+                        <field name="service_id"/>
+                        <field name="amount"/>
+                        <field name="worker_id"/>
+                        <field name="price_total"/>
+                        <field name="is_paid"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- End Provided Service Form -->
+
+    <!-- Provided Service Tree -->
+    <record id="view_car_service_provided_service_tree" model="ir.ui.view">
+        <field name="name">car.service.provided.service.tree</field>
+        <field name="model">car.service.provided.service</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="set_date"/>
+                <field name="client_id"/>
+                <field name="car_id"/>
+                <field name="service_id"/>
+                <field name="amount"/>
+                <field name="worker_id"/>
+                <field name="price_total"/>
+                <field name="is_paid"/>
+            </tree>
+        </field>
+    </record>
+    <!-- End Provided Service Tree -->
+
+    <record id="action_car_service_provided_service" model="ir.actions.act_window">
+            <field name="name">Provided</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">car.service.provided.service</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_car_service_services_provided_services"
+              name="Provided"
+              parent="menu_car_service_services"
+              action="action_car_service_provided_service"
+              sequence="20"/>
+</odoo>

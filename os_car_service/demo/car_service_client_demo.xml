@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="client_bill_demo" model="car.service.client">
+        <field name="name">Andrew</field>
+        <field name="surname">Bill</field>
+        <field name="phone">+111-222-33-44</field>
+        <field name="email">andrew_bill@example.com</field>
+        <field name="gender">male</field>
+    </record>
+
+    <record id="client_connors_demo" model="car.service.client">
+        <field name="name">Sara</field>
+        <field name="surname">Connors</field>
+        <field name="phone">+111-333-44-55</field>
+        <field name="email">sara_connors@example.com</field>
+        <field name="gender">female</field>
+    </record>
+
+    <record id="client_jones_demo" model="car.service.client">
+        <field name="name">John</field>
+        <field name="surname">Jones</field>
+        <field name="phone">+111-444-55-66</field>
+        <field name="email">john_jones@example.com</field>
+        <field name="gender">male</field>
+    </record>
+
+</odoo>

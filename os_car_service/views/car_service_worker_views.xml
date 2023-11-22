@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Worker Form -->
+    <record id="view_car_service_worker_form" model="ir.ui.view">
+        <field name="name">car.service.worker.form</field>
+        <field name="model">car.service.worker</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="surname"/>
+                        <field name="birth_date"/>
+                        <field name="age"/>
+                        <field name="gender"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="passport"/>
+                        <field name="address"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- End Worker Form -->
+
+    <!-- Worker Tree -->
+    <record id="view_car_service_worker_tree" model="ir.ui.view">
+        <field name="name">car.service.worker.tree</field>
+        <field name="model">car.service.worker</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="surname"/>
+                <field name="age"/>
+                <field name="gender"/>
+            </tree>
+        </field>
+    </record>
+    <!-- End Worker Tree -->
+
+    <record id="action_car_service_worker" model="ir.actions.act_window">
+            <field name="name">Workers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">car.service.worker</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_car_service_workers_workers"
+              name="Workers"
+              parent="menu_car_service_workers"
+              action="action_car_service_worker"
+              sequence="10"/>
+
+</odoo>

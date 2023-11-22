@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="worker_hopkins_demo" model="car.service.worker">
+        <field name="name">Antony</field>
+        <field name="surname">Hopkins</field>
+        <field name="phone">+111-555-66-77</field>
+        <field name="email">antony_hopkins@example.com</field>
+        <field name="gender">male</field>
+        <field name="birth_date" eval="datetime(2001,4,26)"/>
+        <field name="address">Highill Street., Apt. 20</field>
+        <field name="passport">0123456</field>
+    </record>
+
+    <record id="worker_shelby_demo" model="car.service.worker">
+        <field name="name">Thomas</field>
+        <field name="surname">Shelby</field>
+        <field name="phone">+111-666-77-88</field>
+        <field name="email">thomas_shelby@example.com</field>
+        <field name="gender">male</field>
+        <field name="birth_date" eval="datetime(1974,8,14)"/>
+        <field name="address">Round Street., Apt. 101</field>
+        <field name="passport">1234567</field>
+    </record>
+
+    <record id="worker_raquel_demo" model="car.service.worker">
+        <field name="name">Melissa</field>
+        <field name="surname">Raquel</field>
+        <field name="phone">+111-777-88-99</field>
+        <field name="email">melissa_raquel@example.com</field>
+        <field name="gender">female</field>
+        <field name="birth_date" eval="datetime(1980,11,5)"/>
+        <field name="address">Orange Street., Apt. 71</field>
+        <field name="passport">2345678</field>
+    </record>
+
+</odoo>

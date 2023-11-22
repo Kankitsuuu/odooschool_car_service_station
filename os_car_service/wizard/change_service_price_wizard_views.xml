@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Change Price Wizard Form -->
+    <record id="change_service_price_wizard_view_form" model="ir.ui.view">
+        <field name="name">change.service.price.wizard.view.form</field>
+        <field name="model">change.service.price.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="price"/>
+                        <field name="currency_id"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_change_price"
+                            string="Change"
+                            type="object"
+                            class="btn-primary"/>
+                    <button special="cancel" class="oe_link" string="Close"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <!-- End Change Price Wizard Form -->
+
+    <record id="server_action_change_service_price_wizard" model="ir.actions.server">
+        <field name="name">Change price</field>
+        <field name="model_id" ref="model_change_service_price_wizard"/>
+        <field name="binding_model_id" ref="model_car_service_service"/>
+        <field name="binding_type">action</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_open_wizard()
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Client Car Form -->
+    <record id="view_car_service_client_car_form" model="ir.ui.view">
+        <field name="name">car.service.client.car.form</field>
+        <field name="model">car.service.client.car</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="client_id"/>
+                        <field name="make_id"/>
+                        <field name="model"/>
+                        <field name="year"/>
+                        <field name="color_id"/>
+                        <field name="body"/>
+                        <field name="number"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- End Client Car Form -->
+
+    <!-- Client Car Tree -->
+    <record id="view_car_service_client_car_tree" model="ir.ui.view">
+        <field name="name">car.service.client.car.tree</field>
+        <field name="model">car.service.client.car</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="make_id"/>
+                <field name="model"/>
+                <field name="color_id"/>
+                <field name="client_id"/>
+                <field name="number"/>
+                <field name="body"/>
+            </tree>
+        </field>
+    </record>
+    <!-- End Client Car Tree -->
+
+    <record id="action_car_service_client_car" model="ir.actions.act_window">
+            <field name="name">Cars</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">car.service.client.car</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_car_service_cars_client_cars"
+              name="Cars"
+              parent="menu_car_service_cars"
+              action="action_car_service_client_car"
+              sequence="10"/>
+
+</odoo>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Car Make Form -->
+    <record id="view_car_service_client_car_make_form" model="ir.ui.view">
+        <field name="name">car.service.client.car.make.form</field>
+        <field name="model">car.service.client.car.make</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- End Car Make Form -->
+
+    <!-- Car Make Tree -->
+    <record id="view_car_service_client_car_make_tree" model="ir.ui.view">
+        <field name="name">car.service.client.car.make.tree</field>
+        <field name="model">car.service.client.car.make</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <!-- End Car Make Tree -->
+
+    <record id="action_car_service_client_car_make" model="ir.actions.act_window">
+        <field name="name">Makes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">car.service.client.car.make</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_car_service_cars_client_car_makes"
+              name="Makes"
+              parent="menu_car_service_cars"
+              action="action_car_service_client_car_make"
+              sequence="20"/>
+
+</odoo>

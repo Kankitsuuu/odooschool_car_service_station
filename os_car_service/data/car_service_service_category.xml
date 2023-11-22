@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="service_category_other" model="car.service.service.category" forcecreate="True">
+        <field name="name">Other</field>
+    </record>
+
+    <record id="service_category_diagnostics" model="car.service.service.category">
+        <field name="name">Diagnostics</field>
+    </record>
+
+    <record id="service_category_service" model="car.service.service.category">
+        <field name="name">Service</field>
+    </record>
+
+</odoo>

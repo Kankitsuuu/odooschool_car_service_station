@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="client_car_bmw_black_demo" model="car.service.client.car">
+        <field name="client_id" ref="client_bill_demo"/>
+        <field name="make_id" ref="client_car_make_bmw_demo"/>
+        <field name="color_id" ref="client_car_color_jet_black_demo"/>
+        <field name="body">suv</field>
+        <field name="number">AA1111AA</field>
+        <field name="model">X5</field>
+        <field name="year">2013</field>
+    </record>
+
+    <record id="client_car_porsche_white_demo" model="car.service.client.car">
+        <field name="client_id" ref="client_connors_demo"/>
+        <field name="make_id" ref="client_car_make_porsche_demo"/>
+        <field name="color_id" ref="client_car_color_pure_white_demo"/>
+        <field name="body">suv</field>
+        <field name="number">AA2222AA</field>
+        <field name="model">Cayenne</field>
+        <field name="year">2018</field>
+    </record>
+
+    <record id="client_car_lotus_blue_demo" model="car.service.client.car">
+        <field name="client_id" ref="client_jones_demo"/>
+        <field name="make_id" ref="client_car_make_lotus_demo"/>
+        <field name="color_id" ref="client_car_color_ultramarine_blue_demo"/>
+        <field name="body">roadster</field>
+        <field name="number">AA3333AA</field>
+        <field name="model">Elise</field>
+        <field name="year">2007</field>
+    </record>
+
+</odoo>

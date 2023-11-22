@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_car_service_root"
+              name="Car Service Management"
+              web_icon="car_service,static/description/icon.png"
+              sequence="10"/>
+
+    <menuitem id="menu_car_service_workers"
+          name="Workers"
+          parent="menu_car_service_root"
+          sequence="10"/>
+
+    <menuitem id="menu_car_service_clients"
+          name="Clients"
+          parent="menu_car_service_root"
+          sequence="20"/>
+
+    <menuitem id="menu_car_service_services"
+          name="Services"
+          parent="menu_car_service_root"
+          sequence="30"/>
+
+    <menuitem id="menu_car_service_cars"
+          name="Cars"
+          parent="menu_car_service_root"
+          sequence="40"/>
+
+</odoo>

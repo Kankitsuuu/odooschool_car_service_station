@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="client_car_color_jet_black_demo" model="car.service.client.car.color">
+        <field name="name">Jet black</field>
+        <field name="technical_code">RAL 9005</field>
+        <field name="description">RAL 9005 Jet black color</field>
+        <field name="metallic" eval="False"/>
+    </record>
+
+    <record id="client_car_color_pure_white_demo" model="car.service.client.car.color">
+        <field name="name">Pure white</field>
+        <field name="technical_code">RAL 9010</field>
+        <field name="description">RAL 9010 Pure white color</field>
+        <field name="metallic" eval="False"/>
+    </record>
+
+    <record id="client_car_color_ultramarine_blue_demo" model="car.service.client.car.color">
+        <field name="name">Ultramarine blue</field>
+        <field name="technical_code">RAL 5002</field>
+        <field name="description">RAL 5002 Ultramarine blue color</field>
+        <field name="metallic" eval="True"/>
+    </record>
+
+</odoo>
