@@ -1,6 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- Client Search -->
+    <record id="view_car_service_client_search" model="ir.ui.view">
+        <field name="name">car.service.client.search</field>
+        <field name="model">car.service.client</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" filter_domain="['|',('name', 'ilike', self), ('surname', 'ilike', self)]"/>
+                <field name="phone" filter_domain="[('phone', '=', self)]"/>
+            </search>
+        </field>
+    </record>
+    <!-- End Client Search -->
+
+    <!-- Client Kanban -->
+    <record id="view_car_service_client_kanban" model="ir.ui.view">
+        <field name="name">car.service.client.kanban</field>
+        <field name="model">car.service.client</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name"/>
+                <field name="surname"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="id"/>
+                <field name="photo"/>
+                <field name="car_total"/>
+                <field name="service_total"/>
+                <field name="invoice_total"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_card_header_title">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="o_kanban_image">
+                                            <img class="o_kanban_image_inner_pic"
+                                                 t-att-src="kanban_image('car.service.client','photo',record.id.raw_value)"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <p>
+                                            <field name="name"/> <field name="surname"/>
+                                            <br/>
+                                            Phone: <field name="phone"/>
+                                            <br/>
+                                            Email: <field name="email"/>
+                                            <br/>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_dropdown_kanban dropdown">
+                                <a class="dropdown-toggle btn"
+                                   role="button"
+                                   data-toggle="dropdown"
+                                   href="#">
+                                    <span class="fa fa-ellipsis-v"
+                                          aria-hidden="true"/>
+                                </a>
+                                <div class="o_kanban_card_manage_setting row mt16">
+                                    <div class="dropdown-menu" role="menu">
+                                        <t t-if="widget.editable">
+                                            <a role="menuitem" type="edit"
+                                               class="dropdown-item">
+                                                Edit
+                                            </a>
+                                        </t>
+                                        <t t-if="widget.deletable">
+                                            <a role="menuitem"
+                                               type="delete"
+                                               class="dropdown-item">
+                                                Delete
+                                            </a>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container o_kanban_card_content">
+                                <div class="d-grid gap-2">
+                                    <button name="action_open_cars"
+                                       type="object"
+                                       class="btn-success"
+                                       icon="fa-car">
+                                        <field string=" Cars" name="car_total" widget="statinfo"/>
+                                    </button>
+                                    <button name="action_open_services"
+                                       type="object"
+                                       class="btn-info"
+                                       icon="fa-wrench">
+                                        <field string=" Services" name="service_total" widget="statinfo"/>
+                                    </button>
+                                    <button name="action_open_invoices"
+                                       type="object"
+                                       class="btn-primary"
+                                       icon="fa-usd">
+                                        <field string=" Invoices" name="invoice_total" widget="statinfo"/>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <!-- End Client Kanban -->
+
     <!-- Client Form -->
     <record id="view_car_service_client_form" model="ir.ui.view">
         <field name="name">car.service.client.form</field>
@@ -8,15 +115,35 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <group>
-                        <field name="name"/>
-                        <field name="surname"/>
-                        <field name="photo"/>
-                        <field name="gender"/>
-                        <field name="phone"/>
-                        <field name="email"/>
-                        <field name="car_ids"/>
-                    </group>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_services"
+                                type="object"
+                                icon="fa-wrench">
+                            <field string="Services" name="service_total" widget="statinfo"/>
+                        </button>
+                        <button name="action_open_invoices"
+                                type="object"
+                                icon="fa-usd">
+                            <field string="Invoices" name="invoice_total" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <field name="photo" class="oe_avatar" widget="image"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                        <label for="surname"/>
+                        <h1><field name="surname"/></h1>
+                        <group>
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="gender"/>
+                        </group>
+                    </div>
+                    <notebook>
+                        <page string="Cars">
+                            <field name="car_ids" mode="kanban"/>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -42,7 +169,7 @@
             <field name="name">Clients</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">car.service.client</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,kanban,form</field>
     </record>
 
     <menuitem id="menu_car_service_clients_clients"

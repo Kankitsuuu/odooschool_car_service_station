@@ -26,4 +26,10 @@
           parent="menu_car_service_root"
           sequence="40"/>
 
+    <menuitem id="menu_car_service_operations"
+          name="Operations"
+          parent="menu_car_service_root"
+          sequence="50"/>
+
+
 </odoo>

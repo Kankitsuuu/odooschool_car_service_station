@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="report.paperformat" id="paperformat_car_service_invoice">
+            <field name="name">A4 Paper format for report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">55</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">25</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">50</field>
+            <field name="dpi">90</field>
+    </record>
+
+    <record id="doctor_report_id" model="ir.actions.report">
+        <field name="name">Print Invoice</field>
+        <field name="model">car.service.invoice</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">os_car_service.car_service_invoice_template</field>
+        <field name="report_file">os_car_service.car_service_invoice_template</field>
+        <field name="binding_model_id" ref="model_car_service_invoice"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="os_car_service.paperformat_car_service_invoice"/>
+    </record>
+
+</odoo>

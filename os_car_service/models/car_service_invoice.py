@@ -11,6 +11,7 @@ class CarServiceInvoice(models.Model):
 
     name = fields.Char(
         compute='_compute_name',
+        store=True,
     )
     client_id = fields.Many2one(
         comodel_name='car.service.client',
@@ -20,10 +21,8 @@ class CarServiceInvoice(models.Model):
         default=fields.Datetime.now,
         readonly=True,
     )
-    service_ids = fields.One2many(
+    service_ids = fields.Many2many(
         comodel_name='car.service.provided.service',
-        inverse_name='invoice_id',
-        required=True,
     )
     price = fields.Float(
         compute='_compute_price',
@@ -41,7 +40,7 @@ class CarServiceInvoice(models.Model):
         as hash string from set_date and client_id
         """
         for invoice in self:
-            name_data = f"{invoice.set_date.strftime('%Y-%m-%d %H:%M')}{invoice.client_id.id}"
+            name_data = f"{invoice.set_date.strftime('%Y-%m-%d %H:%M:%s')}{invoice.client_id.id}"
             name = hashlib.sha512(name_data.encode()).hexdigest()
             invoice.name = name[:10].upper()
 
@@ -54,7 +53,7 @@ class CarServiceInvoice(models.Model):
         for invoice in self:
             if invoice.service_ids:
                 invoice.price = sum(
-                    [service.price for service in invoice.service_ids]
+                    [service.price_total for service in invoice.service_ids]
                 )
             else:
                 invoice.price = 0
@@ -67,17 +66,29 @@ class CarServiceInvoice(models.Model):
         If the entries don't match it will raise ValidationError
         """
         for invoice in self:
+            # check if invoice has provided services
+            if not invoice.service_ids:
+                raise ValidationError(_(
+                    'At least one service must be listed on the invoice.'
+                ))
             for service in invoice.service_ids:
+                # check if services have the same client
                 if invoice.client_id.id != service.client_id.id:
                     raise ValidationError(_(
                         "You cannot specify other clients' services."
                     ))
+                # check if services already invoiced
+                elif service.invoice_id:
+                    raise ValidationError(_(
+                        'You cannot add services from other invoices.'
+                    ))
+                service.invoice_id = invoice
 
     # Onchange methods
-    @api.onchange('service_ids')
-    def _onchange_service_ids(self):
-        if not self.client_id and self.service_ids:
-            self.client_id = self.service_ids[0].client_id
+
+    @api.onchange('client_id')
+    def _onchange_client_id(self):
+        self.service_ids = False
 
     # CRUD methods
     def write(self, vals):
@@ -85,8 +96,17 @@ class CarServiceInvoice(models.Model):
         Write method
         (Can change if only invoice is not paid)
         """
+        res = super(CarServiceInvoice, self).write(vals)
+        if vals.get('is_paid'):
+            if vals['is_paid']:
+                return res
         self.check_is_paid()
-        return super(CarServiceInvoice, self).write(vals)
+        if vals.get('service_ids'):
+            # set invoice_id as False for current services
+            for invoice in self:
+                for service in invoice.service_ids:
+                    service.invoice_id = False
+        return res
 
     def unlink(self):
         """

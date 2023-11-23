@@ -6,6 +6,10 @@ class CarServiceClientCar(models.Model):
     _name = 'car.service.client.car'
     _description = 'Car Service Client`s Car'
 
+    name = fields.Char(
+        compute='_compute_name',
+        store=True,
+    )
     client_id = fields.Many2one(
         comodel_name='car.service.client',
         required=True,
@@ -21,7 +25,13 @@ class CarServiceClientCar(models.Model):
     number = fields.Char(
         required=True,
     )
-    model = fields.Char()
+    model = fields.Char(
+        required=True,
+    )
+    photo = fields.Image(
+        max_width=1920,
+        max_height=1080,
+    )
     year = fields.Integer()
     body = fields.Selection(
         selection=[('sedan', 'Sedan'),
@@ -40,20 +50,28 @@ class CarServiceClientCar(models.Model):
                    ('other', 'Other')],
         default='sedan',
     )
+    service_ids = fields.One2many(
+        comodel_name='car.service.provided.service',
+        inverse_name='car_id',
+    )
+    service_total = fields.Integer(
+        compute='_compute_service_total',
+    )
 
-    # Default methods
-    def name_get(self):
-        """Default name get method."""
-        names = []
-        selection = self.fields_get(allfields=['body'])['body']['selection']
-        bodies = dict(selection)
+    # Compute methods
+    @api.depends('make_id', 'color_id', 'model', 'number')
+    def _compute_name(self):
+        """Compute name method"""
         for car in self:
             make = car.make_id.name
             color = car.color_id.name
-            body = bodies[car.body]
-            name = f'{make} {color} {body} {car.number}'
-            names.append((car.id, name))
-        return names
+            car.name = f'{make} {car.model} {color} {car.number}'
+
+    @api.depends('service_ids')
+    def _compute_service_total(self):
+        """Compute service_total field"""
+        for car in self:
+            car.service_total = len(car.service_ids)
 
     # Constraint methods
     @api.constrains('number')
@@ -65,3 +83,16 @@ class CarServiceClientCar(models.Model):
                 raise ValidationError(_(
                     'Car number must be unique.'
                 ))
+
+    # Action methods
+    def action_open_services(self):
+        """Open tree,form view of provided services for car"""
+        self.ensure_one()
+        return {
+            'name': _('Provided Services'),
+            'type': 'ir.actions.act_window',
+            'view_mode': 'tree,form',
+            'res_model': 'car.service.provided.service',
+            'domain': [('id', 'in', self.service_ids.ids)],
+            'target': 'current',
+        }

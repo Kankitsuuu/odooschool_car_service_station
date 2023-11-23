@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="car_service_invoice_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="invoice">
+                <t t-call="web.basic_layout">
+                <!-- Header -->
+                    <div class="header">
+                    <div class="row">
+                        <div class="col-12 mb4 text-end">
+                            <img t-if="res_company.logo"
+                                 t-att-src="image_data_uri(res_company.logo)"
+                                 style="max-height: 45px;"
+                                 alt="Logo"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div style="border-bottom: 1px solid black;"/>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-12 text-end">
+                            <p class="mt-0">
+                                <t t-esc="res_company.name"/>
+                                <br/>
+                                <t t-esc="res_company.street"/>
+                                <br/>
+                                <span>
+                                    <t t-esc="res_company.city"/>,
+                                    <t t-esc="res_company.state_id.name"/> <t t-esc="res_company.zip"/>
+                                </span>
+                                <br/>
+                                <t t-esc="res_company.country_id.name"/>
+                                <br/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Header -->
+                <!-- Page -->
+                <div class="page">
+                    <h2 class="text-center">Invoice <span t-field="invoice.name"/></h2>
+                    <h3 class="text-center"><t t-esc="invoice.set_date.strftime('%Y-%d-%m %H:%M')"/></h3>
+                    <div>
+                        <table class="table table-bordered" style="width: 100%;">
+                            <thead class="table-light">
+                                <th class="text-center" style="width: 50%">Services</th>
+                                <th class="text-center" style="width: 20%">Amount</th>
+                                <th class="text-center" style="width: 30%">Price</th>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="invoice.service_ids" t-as="service">
+                                    <tr>
+                                        <td class="text-start">
+                                            <span>
+                                                <t t-esc="service.service_id.name"/>
+                                                (<t t-esc="service.car_id.name"/>)
+                                            </span>
+                                        </td>
+                                        <td class="text-center">
+                                            <t t-esc="service.amount"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <t t-esc="service.price_total"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <tfoot class="table-group-divider">
+                                <tr>
+                                    <td colspan="2">
+                                        Total
+                                    </td>
+                                    <td>
+                                        <t t-esc="invoice.price"/>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 3cm;">
+                    <div class="col-5 text-end">
+                        <div class="d-inline">
+                            <span>
+                                <t t-esc="invoice.client_id.name"/> <t t-esc="invoice.client_id.surname"/>
+                            </span>
+                        </div>
+                        <div class="d-inline "
+                             style="border-bottom: 1px solid black; padding-left: 3cm; margin-left: 0.5cm;"/>
+                    </div>
+                    <div class="col-2"/>
+                    <div class="col-5 text-start">
+                        <div class="d-inline">
+                            <t t-esc="user.name"/>
+                        </div>
+                        <div class="d-inline "
+                             style="border-bottom: 1px solid black; padding-left: 3cm; margin-left: 0.5cm;"/>
+
+                    </div>
+                </div>
+                <!-- End page -->
+                <!-- Footer -->
+                <div class="footer h-10">
+                    <div class="text-center">
+                        <p class="mb-2">
+                            <t t-esc="res_company.phone"/> <t t-esc="res_company.email"/> <t t-esc="res_company.website"/>
+                        </p>
+                    </div>
+                </div>
+                <!-- End Footer -->
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

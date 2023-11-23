@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- Provided Service Search -->
+    <record id="view_car_service_provided_service_search" model="ir.ui.view">
+        <field name="name">car.service.provided.service.search</field>
+        <field name="model">car.service.provided.service</field>
+        <field name="arch" type="xml">
+            <search>
+                <searchpanel>
+                    <field name="service_id"
+                           enable_counters="1"
+                           filter_domain="[('service_id', 'ilike', self)]"/>
+                </searchpanel>
+                <field name="name"
+                       filter_domain="[('name', 'ilike', self)]"/>
+                <field name="client_id"
+                       filter_domain="['|', ('client_id.name', 'ilike', self), ('client_id.surname', 'ilike', self)]"/>
+                <field name="car_id"
+                       filter_domain="[('car_id.name', 'ilike', self)]"/>
+                <field name="worker_id"
+                       filter_domain="['|', ('worker_id.name', 'ilike', self), ('worker_id.surname', 'ilike', self)]"/>
+                <!-- Filters -->
+                <filter name="Paid" domain="[('is_paid', '=', True)]"/>
+                <filter name="Unpaid" domain="[('is_paid', '=', False)]"/>
+                <filter name="Invoiced" domain="[('invoice_id', '!=', False)]"/>
+                <filter name="Uninvoiced" domain="[('invoice_id', '=', False)]"/>
+                <!-- Group By -->
+                <filter name="is_paid"
+                        string="Paid"
+                        icon="terp-partner"
+                        context="{'group_by':'is_paid'}"/>
+                <!-- End Filters -->
+            </search>
+        </field>
+    </record>
+    <!-- End Provided Service Search -->
+
+    <!-- Provided Service Pivot -->
+    <record id="view_car_service_provided_service_pivot" model="ir.ui.view">
+        <field name="name">car.service.provided.service.pivot</field>
+        <field name="model">car.service.provided.service</field>
+        <field name="arch" type="xml">
+           <pivot display_quantity="1">
+               <field name="worker_id" type="row"/>
+               <field name="service_id" type="row"/>
+               <field name="set_date" type="col" interval="year"/>
+               <field name="set_date" type="col" interval="month"/>
+           </pivot>
+        </field>
+    </record>
+    <!-- End Provided Service Pivot -->
+
     <!-- Provided Service Form -->
     <record id="view_car_service_provided_service_form" model="ir.ui.view">
         <field name="name">car.service.provided.service.form</field>
@@ -18,6 +68,7 @@
                         <field name="amount"/>
                         <field name="worker_id"/>
                         <field name="price_total"/>
+                        <field name="invoice_id"/>
                         <field name="is_paid"/>
                     </group>
                 </sheet>
@@ -37,10 +88,11 @@
                 <field name="client_id"/>
                 <field name="car_id"/>
                 <field name="service_id"/>
-                <field name="amount"/>
                 <field name="worker_id"/>
-                <field name="price_total"/>
-                <field name="is_paid"/>
+                <field name="amount" optional="hide"/>
+                <field name="price_total" optional="show"/>
+                <field name="is_paid" optional="show"/>
+                <field name="is_invoiced" optional="hide"/>
             </tree>
         </field>
     </record>
@@ -50,7 +102,7 @@
             <field name="name">Provided</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">car.service.provided.service</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,pivot,form</field>
     </record>
 
     <menuitem id="menu_car_service_services_provided_services"

@@ -8,9 +8,7 @@
         <field name="arch" type="xml">
             <form>
                 <group>
-                    <group>
-                        <field name="category_id"/>
-                    </group>
+                    <field name="category_id"/>
                 </group>
                 <footer>
                     <button name="action_change_price"

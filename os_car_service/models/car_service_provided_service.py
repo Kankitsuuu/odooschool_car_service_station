@@ -11,6 +11,7 @@ class CarServiceProvidedService(models.Model):
 
     name = fields.Char(
         compute='_compute_name',
+        store=True,
     )
     set_date = fields.Date(
         default=fields.Date.today,
@@ -46,9 +47,14 @@ class CarServiceProvidedService(models.Model):
     )
     invoice_id = fields.Many2one(
         comodel_name='car.service.invoice',
+        readonly=True,
+    )
+    is_invoiced = fields.Boolean(
+        compute='_compute_is_invoiced',
     )
     is_paid = fields.Boolean(
         related='invoice_id.is_paid',
+        store=True,
     )
 
     # Compute methods
@@ -68,6 +74,12 @@ class CarServiceProvidedService(models.Model):
         """Compute price_total field"""
         for service in self:
             service.price_total = service.service_id.price * service.amount
+
+    @api.depends('invoice_id')
+    def _compute_is_invoiced(self):
+        """Compute is invoiced field"""
+        for service in self:
+            service.is_invoiced = True if service.invoice_id else False
 
     # Constraint methods
     @api.constrains('amount')
@@ -108,17 +120,29 @@ class CarServiceProvidedService(models.Model):
 
     # CRUD methods
     def write(self, vals):
-        self.check_is_paid()
+        """
+        Write method
+        (User can change only uninvoiced services)
+        """
+        self.check_is_invoiced()
         return super(CarServiceProvidedService, self).write(vals)
 
+    def unlink(self):
+        """
+        Unlink method
+        (User can delete only uninvoiced services)
+        """
+        self.check_is_invoiced()
+        return super(CarServiceProvidedService, self).unlink()
+
     # Other methods
-    def check_is_paid(self) -> Optional[NoReturn]:
+    def check_is_invoiced(self) -> Optional[NoReturn]:
         """
         Checks whether the service has paid status
         If not it will raise UserError
         """
         for service in self:
-            if service.is_paid:
+            if service.is_invoiced:
                 raise UserError(_(
-                    'You cannot change paid services.'
+                    'You cannot change invoiced services.'
                 ))

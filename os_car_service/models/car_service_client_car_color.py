@@ -13,7 +13,7 @@ class CarServiceClientCarColor(models.Model):
         required=True,
     )
     description = fields.Char()
-    metallic = fields.Boolean(
+    is_metallic = fields.Boolean(
         default=True,
     )
 

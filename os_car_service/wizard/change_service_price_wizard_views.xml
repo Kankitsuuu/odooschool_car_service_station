@@ -8,10 +8,8 @@
         <field name="arch" type="xml">
             <form>
                 <group>
-                    <group>
-                        <field name="price"/>
-                        <field name="currency_id"/>
-                    </group>
+                    <field name="price"/>
+                    <field name="currency_id"/>
                 </group>
                 <footer>
                     <button name="action_change_price"

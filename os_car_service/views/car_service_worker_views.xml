@@ -1,6 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- Worker Search -->
+    <record id="view_car_service_worker_search" model="ir.ui.view">
+        <field name="name">car.service.worker.search</field>
+        <field name="model">car.service.worker</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" filter_domain="['|',('name', 'ilike', self), ('surname', 'ilike', self)]"/>
+                <field name="phone" filter_domain="[('phone', '=', self)]"/>
+                <!-- Filters -->
+                <filter name="Male" domain="[('gender', '=', 'male')]"/>
+                <filter name="Female" domain="[('gender', '=', 'female')]"/>
+                <filter name="Other gender" domain="[('gender', '=', 'other')]"/>
+                <!-- Group By -->
+                <filter name="gender"
+                        string="Gender"
+                        icon="terp-partner"
+                        context="{'group_by':'gender'}"/>
+                <!-- End Filters -->
+            </search>
+        </field>
+    </record>
+    <!-- End Worker Search -->
+
+    <!-- Worker Kanban -->
+    <record id="view_car_service_worker_kanban" model="ir.ui.view">
+        <field name="name">car.service.worker.kanban</field>
+        <field name="model">car.service.worker</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name"/>
+                <field name="surname"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="id"/>
+                <field name="photo"/>
+                <field name="service_total"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_card_header_title">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="o_kanban_image">
+                                            <img class="o_kanban_image_inner_pic"
+                                                 t-att-src="kanban_image('car.service.worker','photo',record.id.raw_value)"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <p>
+                                            <field name="name"/> <field name="surname"/>
+                                            <br/>
+                                            Phone: <field name="phone"/>
+                                            <br/>
+                                            Email: <field name="email"/>
+                                            <br/>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_dropdown_kanban dropdown">
+                                <a class="dropdown-toggle btn"
+                                   role="button"
+                                   data-toggle="dropdown"
+                                   href="#">
+                                    <span class="fa fa-ellipsis-v"
+                                          aria-hidden="true"/>
+                                </a>
+                                <div class="o_kanban_card_manage_setting row mt16">
+                                    <div class="dropdown-menu" role="menu">
+                                        <t t-if="widget.editable">
+                                            <a role="menuitem" type="edit"
+                                               class="dropdown-item">
+                                                Edit
+                                            </a>
+                                        </t>
+                                        <t t-if="widget.deletable">
+                                            <a role="menuitem"
+                                               type="delete"
+                                               class="dropdown-item">
+                                                Delete
+                                            </a>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container o_kanban_card_content">
+                                <div class="d-grid gap-2">
+                                    <button name="action_open_services"
+                                       type="object"
+                                       class="btn-info"
+                                       icon="fa-wrench">
+                                        <field string=" Services" name="service_total" widget="statinfo"/>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <!-- End Worker Kanban -->
+
     <!-- Worker Form -->
     <record id="view_car_service_worker_form" model="ir.ui.view">
         <field name="name">car.service.worker.form</field>
@@ -8,17 +111,35 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <group>
-                        <field name="name"/>
-                        <field name="surname"/>
-                        <field name="birth_date"/>
-                        <field name="age"/>
-                        <field name="gender"/>
-                        <field name="phone"/>
-                        <field name="email"/>
-                        <field name="passport"/>
-                        <field name="address"/>
-                    </group>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_services"
+                                type="object"
+                                icon="fa-wrench">
+                            <field string="Services" name="service_total" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <field name="photo" class="oe_avatar" widget="image"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                        <label for="surname"/>
+                        <h1><field name="surname"/></h1>
+                        <group>
+                            <field name="birth_date"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                        </group>
+                    </div>
+                    <notebook>
+                        <page string="Details">
+                             <group>
+                                <field name="gender"/>
+                                <field name="age"/>
+                                <field name="passport"/>
+                                <field name="address"/>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -33,8 +154,9 @@
             <tree>
                 <field name="name"/>
                 <field name="surname"/>
-                <field name="age"/>
-                <field name="gender"/>
+                <field name="phone"/>
+                <field name="age" optional="show"/>
+                <field name="gender" optional="hide"/>
             </tree>
         </field>
     </record>
@@ -44,7 +166,7 @@
             <field name="name">Workers</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">car.service.worker</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,kanban,form</field>
     </record>
 
     <menuitem id="menu_car_service_workers_workers"

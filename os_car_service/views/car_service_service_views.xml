@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- Service Search -->
+    <record id="view_car_service_service_search" model="ir.ui.view">
+        <field name="name">car.service.service.search</field>
+        <field name="model">car.service.service</field>
+        <field name="arch" type="xml">
+            <search>
+                <searchpanel>
+                    <field name="category_id"
+                       enable_counters="1"
+                       filter_domain="[('category_id', 'ilike', self)]"/>
+                </searchpanel>
+                <field name="name" filter_domain="[('name', 'ilike', self)]"/>
+                <filter name="Price greather than 1000" domain="[('price', '>', 1000)]"/>
+            </search>
+        </field>
+    </record>
+    <!-- End Service Search -->
 
     <!-- Service Form -->
     <record id="view_car_service_service_form" model="ir.ui.view">

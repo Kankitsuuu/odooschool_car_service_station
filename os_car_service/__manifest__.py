@@ -28,6 +28,9 @@
         'views/car_service_invoice_views.xml',
         'wizard/change_service_price_wizard_views.xml',
         'wizard/change_service_category_wizard_views.xml',
+        'wizard/create_invoice_wizard_views.xml',
+        'reports/car_service_invoice.xml',
+        'reports/car_service_invoice_template.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

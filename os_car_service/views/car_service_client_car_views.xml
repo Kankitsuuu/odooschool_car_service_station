@@ -1,6 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- Client Car Search -->
+    <record id="view_car_service_client_car_search" model="ir.ui.view">
+        <field name="name">car.service.client.car.search</field>
+        <field name="model">car.service.client.car</field>
+        <field name="arch" type="xml">
+            <search>
+                <searchpanel>
+                    <field name="make_id"
+                           enable_counters="1"
+                           filter_domain="[('make_id', 'ilike', self)]"/>
+                    <field name="body"
+                           enable_counters="1"
+                           filter_domain="[('body', 'ilike', self)]"/>
+                </searchpanel>
+                <field name="name" filter_domain="[('name', 'ilike', self)]"/>
+                <field name="number" filter_domain="[('number', 'ilike', self)]"/>
+                <field name="client_id"
+                       filter_domain="['|', ('client_id.name', 'ilike', self), ('client_id.surname', 'ilike', self)]"/>
+                <field name="color_id"
+                       filter_domain="[('color_id', 'ilike', self)]"/>
+                <!-- Filters -->
+                <!-- Group By -->
+                <filter name="body"
+                        string="Body"
+                        icon="terp-partner"
+                        context="{'group_by':'body'}"/>
+                <!-- End Filters -->
+            </search>
+        </field>
+    </record>
+    <!-- End Client Car Search -->
+
+    <!-- Client Car Kanban -->
+    <record id="view_car_service_client_car_kanban" model="ir.ui.view">
+        <field name="name">car.service.client.car.kanban</field>
+        <field name="model">car.service.client.car</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" default_group_by="make_id">
+                <field name="make_id"/>
+                <field name="model"/>
+                <field name="client_id"/>
+                <field name="color_id"/>
+                <field name="id"/>
+                <field name="photo"/>
+                <field name="service_total"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_card_header_title">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="o_kanban_image">
+                                            <img class="o_kanban_image_inner_pic"
+                                                 t-att-src="kanban_image('car.service.client.car','photo',record.id.raw_value)"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <p>
+                                            <field name="make_id"/> <field name="model"/>
+                                            <br/>
+                                            Color: <field name="color_id"/>
+                                            <br/>
+                                            Client: <field name="client_id"/>
+                                            <br/>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_dropdown_kanban dropdown">
+                                <a class="dropdown-toggle btn"
+                                   role="button"
+                                   data-toggle="dropdown"
+                                   href="#">
+                                    <span class="fa fa-ellipsis-v"
+                                          aria-hidden="true"/>
+                                </a>
+                                <div class="o_kanban_card_manage_setting row mt16">
+                                    <div class="dropdown-menu" role="menu">
+                                        <t t-if="widget.editable">
+                                            <a role="menuitem" type="edit"
+                                               class="dropdown-item">
+                                                Edit
+                                            </a>
+                                        </t>
+                                        <t t-if="widget.deletable">
+                                            <a role="menuitem"
+                                               type="delete"
+                                               class="dropdown-item">
+                                                Delete
+                                            </a>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container o_kanban_card_content">
+                                <div class="row">
+                                    <div class="d-grid gap-2">
+                                       <button name="action_open_services"
+                                               type="object"
+                                               class="btn-info"
+                                               icon="fa-wrench">
+                                           <field string=" Services" name="service_total" widget="statinfo"/>
+                                       </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <!-- End Client Car Kanban -->
+
     <!-- Client Car Form -->
     <record id="view_car_service_client_car_form" model="ir.ui.view">
         <field name="name">car.service.client.car.form</field>
@@ -8,15 +122,25 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <group>
-                        <field name="client_id"/>
-                        <field name="make_id"/>
-                        <field name="model"/>
-                        <field name="year"/>
-                        <field name="color_id"/>
-                        <field name="body"/>
-                        <field name="number"/>
-                    </group>
+                    <field name="photo" class="oe_avatar" options="{'size': [250, 180]}" widget="image"/>
+                    <div class="oe_title">
+                        <label for="make_id"/>
+                        <h1><field name="make_id"/></h1>
+                        <label for="model"/>
+                        <h2><field name="model"/></h2>
+                        <label for="client_id"/>
+                        <h2><field name="client_id"/></h2>
+                    </div>
+                    <notebook>
+                        <page string="Details">
+                            <group>
+                                <field name="year" widget="char"/>
+                                <field name="color_id"/>
+                                <field name="body"/>
+                                <field name="number"/>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -31,10 +155,10 @@
             <tree>
                 <field name="make_id"/>
                 <field name="model"/>
-                <field name="color_id"/>
+                <field name="color_id" optional="hide"/>
                 <field name="client_id"/>
-                <field name="number"/>
-                <field name="body"/>
+                <field name="number" optional="hide"/>
+                <field name="body" optional="hide"/>
             </tree>
         </field>
     </record>
@@ -44,7 +168,7 @@
             <field name="name">Cars</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">car.service.client.car</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,kanban,form</field>
     </record>
 
     <menuitem id="menu_car_service_cars_client_cars"

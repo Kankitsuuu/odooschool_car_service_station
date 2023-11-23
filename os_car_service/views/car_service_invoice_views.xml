@@ -1,7 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- Service Form -->
+    <!-- Invoice Search -->
+    <record id="view_car_service_invoice_search" model="ir.ui.view">
+        <field name="name">car.service.invoice.search</field>
+        <field name="model">car.service.invoice</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" filter_domain="[('name', 'ilike', self)]"/>
+                <field name="client_id"
+                       filter_domain="['|', ('client_id.name', 'ilike', self), ('client_id.surname', 'ilike', self)]"/>
+                <!-- Filters -->
+                <filter name="Paid" domain="[('is_paid', '=', True)]"/>
+                <filter name="Unpaid" domain="[('is_paid', '=', False)]"/>
+                <!-- Group By -->
+                <filter name="is_paid"
+                        string="Paid"
+                        icon="terp-partner"
+                        context="{'group_by':'is_paid'}"/>
+                <!-- End Filters -->
+            </search>
+        </field>
+    </record>
+    <!-- End Invoice Search -->
+
+    <!-- Invoice Pivot -->
+    <record id="view_car_service_invoice_pivot" model="ir.ui.view">
+        <field name="name">car.service.invoice.pivot</field>
+        <field name="model">car.service.invoice</field>
+        <field name="arch" type="xml">
+           <pivot display_quantity="1">
+               <field name="client_id" type="row"/>
+               <field name="set_date" type="col" interval="year"/>
+               <field name="set_date" type="col" interval="month"/>
+           </pivot>
+        </field>
+    </record>
+    <!-- End Invoice Pivot -->
+
+    <!-- Invoice Graph -->
+    <record id="view_car_service_invoice_graph" model="ir.ui.view">
+        <field name="name">car.service.invoice.graph</field>
+        <field name="model">car.service.invoice</field>
+        <field name="arch" type="xml">
+           <graph type="pie">
+               <field name="set_date" interval="month"/>
+               <field name="is_paid"/>
+           </graph>
+        </field>
+    </record>
+    <!-- End Invoice Graph -->
+
+    <!-- Invoice Form -->
     <record id="view_car_service_invoice_form" model="ir.ui.view">
         <field name="name">car.service.invoice.form</field>
         <field name="model">car.service.invoice</field>
@@ -11,7 +61,8 @@
                     <group>
                         <field name="name" attrs="{'invisible': [('client_id', '=', False)]}"/>
                         <field name="client_id"/>
-                        <field name="service_ids"/>
+                        <field name="service_ids"
+                               domain="[('invoice_id', '=', False), ('client_id', '=', client_id)]"/>
                         <field name="price"/>
                         <field name="is_paid"/>
                     </group>
@@ -19,7 +70,7 @@
             </form>
         </field>
     </record>
-    <!-- End Service Form -->
+    <!-- End Invoice Form -->
 
     <!-- Invoice Tree -->
     <record id="view_car_service_invoice_tree" model="ir.ui.view">
@@ -29,18 +80,19 @@
             <tree>
                 <field name="name"/>
                 <field name="client_id"/>
-                <field name="price"/>
-                <field name="is_paid"/>
+                <field name="set_date" widget="date"/>
+                <field name="price" optional="hide"/>
+                <field name="is_paid" optional="hide"/>
             </tree>
         </field>
     </record>
     <!-- End Invoice Tree -->
 
     <record id="action_car_service_invoice" model="ir.actions.act_window">
-            <field name="name">Invoices</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">car.service.invoice</field>
-            <field name="view_mode">tree,form</field>
+        <field name="name">Invoices</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">car.service.invoice</field>
+        <field name="view_mode">tree,pivot,graph,form</field>
     </record>
 
     <menuitem id="menu_car_service_services_invoices"
@@ -48,4 +100,5 @@
               parent="menu_car_service_services"
               action="action_car_service_invoice"
               sequence="40"/>
+
 </odoo>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Create Invoice Wizard Form -->
+    <record id="create_invoice_wizard_view_form" model="ir.ui.view">
+        <field name="name">create.invoice.wizard.view.form</field>
+        <field name="model">create.invoice.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="client_id"/>
+                    <field name="service_ids"
+                           domain="[('invoice_id', '=', False), ('client_id', '=', client_id)]"/>
+                </group>
+                <footer>
+                    <button name="action_create_invoice"
+                            string="Create"
+                            type="object"
+                            class="btn-primary"/>
+                    <button special="cancel" class="oe_link" string="Close"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <!--End Create Invoice Wizard Form -->
+
+    <!-- Bind opening wizard as action for Provided Service -->
+    <record id="server_action_change_service_price_wizard" model="ir.actions.server">
+        <field name="name">Create Invoice</field>
+        <field name="model_id" ref="model_create_invoice_wizard"/>
+        <field name="binding_model_id" ref="model_car_service_provided_service"/>
+        <field name="binding_type">action</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_open_wizard()
+        </field>
+    </record>
+
+    <!-- Open wizard via menu item -->
+    <record id="server_action_create_invoice_wizard" model="ir.actions.server">
+        <field name="name">New invoice</field>
+        <field name="model_id" ref="model_create_invoice_wizard"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_open_wizard()
+        </field>
+    </record>
+
+    <menuitem id="menu_create_invoice_wizard"
+              name="New invoice"
+              parent="menu_car_service_operations"
+              action="server_action_create_invoice_wizard"
+              sequence="10"/>
+
+</odoo>
