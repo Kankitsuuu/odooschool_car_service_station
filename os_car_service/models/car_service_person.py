@@ -8,9 +8,11 @@ class CarServicePerson(models.AbstractModel):
 
     name = fields.Char(
         required=True,
+        translate=True,
     )
     surname = fields.Char(
         required=True,
+        translate=True,
     )
     phone = fields.Char()
     email = fields.Char()
@@ -34,7 +36,9 @@ class CarServicePerson(models.AbstractModel):
         """Checking the uniqueness of the phone number if phone exists"""
         for person in self:
             if person.phone:
-                person_count = self.search_count([('phone', '=', person.phone)])
+                person_count = self.search_count(
+                    [('phone', '=', person.phone)]
+                )
                 if person_count > 1:
                     raise ValidationError(_(
                         'Person with the same phone number already exists.'

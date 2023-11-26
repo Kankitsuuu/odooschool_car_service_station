@@ -44,7 +44,6 @@
            <pivot display_quantity="1">
                <field name="worker_id" type="row"/>
                <field name="service_id" type="row"/>
-               <field name="set_date" type="col" interval="year"/>
                <field name="set_date" type="col" interval="month"/>
            </pivot>
         </field>

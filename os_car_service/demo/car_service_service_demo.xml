@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
 
-    <record id="service_full_diagnostics" model="car.service.service">
+    <record id="service_full_diagnostics_demo" model="car.service.service">
         <field name="name">Full diagnostics</field>
         <field name="description">Full diagnostics of the car</field>
         <field name="price">1000.00</field>
@@ -9,7 +9,7 @@
         <field name="currency_id" ref="base.UAH"/>
     </record>
 
-    <record id="service_engine_diagnostics" model="car.service.service">
+    <record id="service_engine_diagnostics_demo" model="car.service.service">
         <field name="name">Engine diagnostics</field>
         <field name="description">Engine work diagnostics</field>
         <field name="price">700.00</field>
@@ -17,12 +17,35 @@
         <field name="currency_id" ref="base.UAH"/>
     </record>
 
-    <record id="service_replacing_oil" model="car.service.service">
+    <record id="service_replacing_oil_demo" model="car.service.service">
         <field name="name">Replacing engine oil</field>
         <field name="description">Replacing engine oil</field>
         <field name="price">400.00</field>
         <field name="category_id" ref="service_category_service"/>
         <field name="currency_id" ref="base.UAH"/>
     </record>
+
+    <!-- Translation -->
+    <record id="os_car_service.service_full_diagnostics_demo"
+            model="car.service.service"
+            context="{'lang': 'uk_UA'}">
+        <field name="name">Повна діагностика</field>
+        <field name="description">Повна діагностика автомобіля</field>
+    </record>
+
+    <record id="os_car_service.service_engine_diagnostics_demo"
+            model="car.service.service"
+            context="{'lang': 'uk_UA'}">
+        <field name="name">Діагностика двигуна</field>
+        <field name="description">Діагностика роботи двигуна</field>
+    </record>
+
+    <record id="os_car_service.service_replacing_oil_demo"
+            model="car.service.service"
+            context="{'lang': 'uk_UA'}">
+            <field name="name">Заміна моторного масла</field>
+        <field name="description">Заміна моторного масла</field>
+    </record>
+    <!-- End Translation -->
 
 </odoo>

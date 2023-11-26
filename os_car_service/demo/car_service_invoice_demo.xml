@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="invoice_connors_demo" model="car.service.invoice">
+        <field name="client_id" ref="client_connors_demo"/>
+        <field name="service_ids"
+               eval="[Command.link(ref('provided_service_full_diagnostics_demo')), Command.link(ref('provided_service_replacing_oil_demo'))]"/>
+    </record>
+
+    <record id="invoice_jones_demo" model="car.service.invoice">
+        <field name="client_id" ref="client_jones_demo"/>
+        <field name="service_ids"
+               eval="[Command.link(ref('provided_service_engine_diagnostics_demo'))]"/>
+    </record>
+
+</odoo>

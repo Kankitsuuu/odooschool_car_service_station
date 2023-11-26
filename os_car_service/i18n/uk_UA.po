@@ -1,0 +1,849 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* os_car_service
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-25 10:50+0000\n"
+"PO-Revision-Date: 2023-11-25 10:50+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: os_car_service
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_car_kanban
+msgid ""
+"<br/>\n"
+"                                            Client:"
+msgstr "<br/>\nКлієнт:"
+
+#. module: os_car_service
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_car_kanban
+msgid ""
+"<br/>\n"
+"                                            Color:"
+msgstr "<br/>\nКолір:"
+
+#. module: os_car_service
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_kanban
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_worker_kanban
+msgid ""
+"<br/>\n"
+"                                            Email:"
+msgstr ""
+
+#. module: os_car_service
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_kanban
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_worker_kanban
+msgid ""
+"<br/>\n"
+"                                            Phone:"
+msgstr "<br/>\nТелефон:"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker__address
+msgid "Address"
+msgstr "Адреса"
+
+#. module: os_car_service
+#: model:res.groups,name:os_car_service.group_car_service_admin
+msgid "Administrator"
+msgstr "Адміністратор"
+
+#. module: os_car_service
+#: model:res.groups,comment:os_car_service.group_car_service_admin
+msgid "Administrators of the Car Service (full rights)"
+msgstr "Адміністратори Обслуговування Автомобілів (повні права)"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker__age
+msgid "Age"
+msgstr "Вік"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service__amount
+#: model_terms:ir.ui.view,arch_db:os_car_service.car_service_invoice_template
+msgid "Amount"
+msgstr "Кількість"
+
+#. module: os_car_service
+#. odoo-python
+#: code:addons/os_car_service/models/car_service_invoice.py:0
+#, python-format
+msgid "At least one service must be listed on the invoice."
+msgstr "Хоча б одна послуга повинна бути вказана у рахунку."
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker__birth_date
+msgid "Birth Date"
+msgstr "Дата народження"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car__body
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_car_search
+msgid "Body"
+msgstr "Кузов"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client__car_ids
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service__car_id
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service__possible_car_ids
+msgid "Car"
+msgstr "Машина"
+
+#. module: os_car_service
+#: model:ir.module.category,name:os_car_service.category_car_service
+msgid "Car Service"
+msgstr "Обслуговування Автомобілів"
+
+#. module: os_car_service
+#: model:ir.model,name:os_car_service.model_car_service_service_category
+msgid "Car Service Categories"
+msgstr "Обслуговування Автомобілів. Категорії послуг"
+
+#. module: os_car_service
+#: model:ir.model,name:os_car_service.model_car_service_client
+msgid "Car Service Client"
+msgstr "Обслуговування Автомобілів. Кліент"
+
+#. module: os_car_service
+#: model:ir.model,name:os_car_service.model_car_service_client_car
+msgid "Car Service Client`s Car"
+msgstr "Обслуговування Автомобілів. Автомобіль кліента"
+
+#. module: os_car_service
+#: model:ir.model,name:os_car_service.model_car_service_client_car_make
+msgid "Car Service Client`s Car Make"
+msgstr "Обслуговування Автомобілів. Марка автомобіля клієнта"
+
+#. module: os_car_service
+#: model:ir.model,name:os_car_service.model_car_service_client_car_color
+msgid "Car Service Client`s Car color"
+msgstr "Обслуговування Автомобілів. Колір автомобіля клієнта"
+
+#. module: os_car_service
+#: model:ir.model,name:os_car_service.model_car_service_invoice
+#: model:ir.model,name:os_car_service.model_car_service_provided_service
+msgid "Car Service Invoice"
+msgstr "Обслуговування Автомобілів. Рахунок"
+
+#. module: os_car_service
+#: model:ir.ui.menu,name:os_car_service.menu_car_service_root
+msgid "Car Service Management"
+msgstr "Керування Обслуговуванням Автомобілів"
+
+#. module: os_car_service
+#: model:ir.model,name:os_car_service.model_car_service_person
+msgid "Car Service Person Abstract Model"
+msgstr "Обслуговування Автомобілів. Абстрактна модель персони"
+
+#. module: os_car_service
+#: model:ir.model,name:os_car_service.model_car_service_service
+msgid "Car Service Services"
+msgstr "Обслуговування Автомобілів. Послуги"
+
+#. module: os_car_service
+#: model:ir.model,name:os_car_service.model_car_service_worker
+msgid "Car Service Station Worker"
+msgstr "Обслуговування Автомобілів. Робітник"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client__car_total
+msgid "Car Total"
+msgstr "Усього машин"
+
+#. module: os_car_service
+#. odoo-python
+#: code:addons/os_car_service/models/car_service_client_car.py:0
+#, python-format
+msgid "Car number must be unique."
+msgstr "Номер автомобіля повинен бути унікальним."
+
+#. module: os_car_service
+#. odoo-python
+#: code:addons/os_car_service/models/car_service_client.py:0
+#: model:ir.actions.act_window,name:os_car_service.action_car_service_client_car
+#: model:ir.ui.menu,name:os_car_service.menu_car_service_cars
+#: model:ir.ui.menu,name:os_car_service.menu_car_service_cars_client_cars
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_form
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_kanban
+#, python-format
+msgid "Cars"
+msgstr "Автомобілі"
+
+#. module: os_car_service
+#: model:ir.actions.act_window,name:os_car_service.action_car_service_service_category
+#: model:ir.ui.menu,name:os_car_service.menu_car_service_services_categories
+msgid "Categories"
+msgstr "Категорії"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service__category_id
+#: model:ir.model.fields,field_description:os_car_service.field_change_service_category_wizard__category_id
+msgid "Category"
+msgstr "Категорія"
+
+#. module: os_car_service
+#: model_terms:ir.ui.view,arch_db:os_car_service.change_service_category_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:os_car_service.change_service_price_wizard_view_form
+msgid "Change"
+msgstr "Змінити"
+
+#. module: os_car_service
+#. odoo-python
+#: code:addons/os_car_service/wizard/change_service_category_wizard.py:0
+#, python-format
+msgid "Change Service Category Wizard"
+msgstr "Візард для зміни категорії послуг"
+
+#. module: os_car_service
+#. odoo-python
+#: code:addons/os_car_service/wizard/change_service_price_wizard.py:0
+#, python-format
+msgid "Change Service Price Wizard"
+msgstr "Візард для зміни ціни послуг"
+
+#. module: os_car_service
+#: model:ir.actions.server,name:os_car_service.server_action_change_service_category_wizard
+msgid "Change category"
+msgstr "Змінити категорію"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car__client_id
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_invoice__client_id
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service__client_id
+#: model:ir.model.fields,field_description:os_car_service.field_create_invoice_wizard__client_id
+msgid "Client"
+msgstr "Клієнт"
+
+#. module: os_car_service
+#: model:ir.actions.act_window,name:os_car_service.action_car_service_client
+#: model:ir.ui.menu,name:os_car_service.menu_car_service_clients
+#: model:ir.ui.menu,name:os_car_service.menu_car_service_clients_clients
+msgid "Clients"
+msgstr "Клієнти"
+
+#. module: os_car_service
+#: model_terms:ir.ui.view,arch_db:os_car_service.change_service_category_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:os_car_service.change_service_price_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:os_car_service.create_invoice_wizard_view_form
+msgid "Close"
+msgstr "Закрити"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car__color_id
+msgid "Color"
+msgstr "Колір"
+
+#. module: os_car_service
+#: model:ir.actions.act_window,name:os_car_service.action_car_service_client_car_color
+#: model:ir.ui.menu,name:os_car_service.menu_car_service_cars_client_car_colors
+msgid "Colors"
+msgstr "Кольори"
+
+#. module: os_car_service
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_client_car__body__convertible
+msgid "Convertible"
+msgstr "Кабріолет"
+
+#. module: os_car_service
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_client_car__body__coupe
+msgid "Coupe"
+msgstr "Купе"
+
+#. module: os_car_service
+#: model_terms:ir.ui.view,arch_db:os_car_service.create_invoice_wizard_view_form
+msgid "Create"
+msgstr "Створити"
+
+#. module: os_car_service
+#: model:ir.actions.server,name:os_car_service.server_action_change_service_price_wizard
+msgid "Create Invoice"
+msgstr "Створити рахунок"
+
+#. module: os_car_service
+#. odoo-python
+#: code:addons/os_car_service/wizard/create_invoice_wizard.py:0
+#, python-format
+msgid "Create Invoice Wizard"
+msgstr "Візард для створення рахунків"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client__create_uid
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car__create_uid
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_color__create_uid
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_make__create_uid
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_invoice__create_uid
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service__create_uid
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service__create_uid
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service_category__create_uid
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker__create_uid
+#: model:ir.model.fields,field_description:os_car_service.field_change_service_category_wizard__create_uid
+#: model:ir.model.fields,field_description:os_car_service.field_change_service_price_wizard__create_uid
+#: model:ir.model.fields,field_description:os_car_service.field_create_invoice_wizard__create_uid
+msgid "Created by"
+msgstr "Створено"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client__create_date
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car__create_date
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_color__create_date
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_make__create_date
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_invoice__create_date
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service__create_date
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service__create_date
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service_category__create_date
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker__create_date
+#: model:ir.model.fields,field_description:os_car_service.field_change_service_category_wizard__create_date
+#: model:ir.model.fields,field_description:os_car_service.field_change_service_price_wizard__create_date
+#: model:ir.model.fields,field_description:os_car_service.field_create_invoice_wizard__create_date
+msgid "Created on"
+msgstr "Дата створення"
+
+#. module: os_car_service
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_client_car__body__crossover
+msgid "Crossover"
+msgstr "Кросовер"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service__currency_id
+#: model:ir.model.fields,field_description:os_car_service.field_change_service_price_wizard__currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: os_car_service
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_car_kanban
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_kanban
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_worker_kanban
+msgid "Delete"
+msgstr "Видалити"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_color__description
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service__description
+msgid "Description"
+msgstr "Опис"
+
+#. module: os_car_service
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_car_form
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_worker_form
+msgid "Details"
+msgstr "Деталі"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client__display_name
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car__display_name
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_color__display_name
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_make__display_name
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_invoice__display_name
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service__display_name
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service__display_name
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service_category__display_name
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker__display_name
+#: model:ir.model.fields,field_description:os_car_service.field_change_service_category_wizard__display_name
+#: model:ir.model.fields,field_description:os_car_service.field_change_service_price_wizard__display_name
+#: model:ir.model.fields,field_description:os_car_service.field_create_invoice_wizard__display_name
+msgid "Display Name"
+msgstr "Відображуване ім'я"
+
+#. module: os_car_service
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_car_kanban
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_kanban
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_worker_kanban
+msgid "Edit"
+msgstr "Змінити"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client__email
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_person__email
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker__email
+msgid "Email"
+msgstr ""
+
+#. module: os_car_service
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_client__gender__female
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_person__gender__female
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_worker__gender__female
+msgid "Female"
+msgstr "Жіноча"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client__gender
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_person__gender
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker__gender
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_worker_search
+msgid "Gender"
+msgstr "Стать"
+
+#. module: os_car_service
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_client_car__body__hatchback
+msgid "Hatchback"
+msgstr "Хетчбек"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client__id
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car__id
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_color__id
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_make__id
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_invoice__id
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service__id
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service__id
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service_category__id
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker__id
+#: model:ir.model.fields,field_description:os_car_service.field_change_service_category_wizard__id
+#: model:ir.model.fields,field_description:os_car_service.field_change_service_price_wizard__id
+#: model:ir.model.fields,field_description:os_car_service.field_create_invoice_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client__invoice_ids
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service__invoice_id
+#: model_terms:ir.ui.view,arch_db:os_car_service.car_service_invoice_template
+msgid "Invoice"
+msgstr "Рахунок"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client__invoice_total
+msgid "Invoice Total"
+msgstr "Усього рахунків"
+
+#. module: os_car_service
+#. odoo-python
+#: code:addons/os_car_service/models/car_service_client.py:0
+#: model:ir.actions.act_window,name:os_car_service.action_car_service_invoice
+#: model:ir.ui.menu,name:os_car_service.menu_car_service_services_invoices
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_form
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_kanban
+#, python-format
+msgid "Invoices"
+msgstr "Рахунки"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service__is_invoiced
+msgid "Is Invoiced"
+msgstr "Вказано у рахунку"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_color__is_metallic
+msgid "Is Metallic"
+msgstr "Металік"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_invoice__is_paid
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service__is_paid
+msgid "Is Paid"
+msgstr "Сплачено"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client____last_update
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car____last_update
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_color____last_update
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_make____last_update
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_invoice____last_update
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service____last_update
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service____last_update
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service_category____last_update
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker____last_update
+#: model:ir.model.fields,field_description:os_car_service.field_change_service_category_wizard____last_update
+#: model:ir.model.fields,field_description:os_car_service.field_change_service_price_wizard____last_update
+#: model:ir.model.fields,field_description:os_car_service.field_create_invoice_wizard____last_update
+msgid "Last Modified on"
+msgstr "Дата останньої зміни"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client__write_uid
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car__write_uid
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_color__write_uid
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_make__write_uid
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_invoice__write_uid
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service__write_uid
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service__write_uid
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service_category__write_uid
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker__write_uid
+#: model:ir.model.fields,field_description:os_car_service.field_change_service_category_wizard__write_uid
+#: model:ir.model.fields,field_description:os_car_service.field_change_service_price_wizard__write_uid
+#: model:ir.model.fields,field_description:os_car_service.field_create_invoice_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Востаннє оновлено"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client__write_date
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car__write_date
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_color__write_date
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_make__write_date
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_invoice__write_date
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service__write_date
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service__write_date
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service_category__write_date
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker__write_date
+#: model:ir.model.fields,field_description:os_car_service.field_change_service_category_wizard__write_date
+#: model:ir.model.fields,field_description:os_car_service.field_change_service_price_wizard__write_date
+#: model:ir.model.fields,field_description:os_car_service.field_create_invoice_wizard__write_date
+msgid "Last Updated on"
+msgstr "Дата останнього оновлення"
+
+#. module: os_car_service
+#: model_terms:ir.ui.view,arch_db:os_car_service.car_service_invoice_template
+msgid "Logo"
+msgstr "Логотип"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car__make_id
+msgid "Make"
+msgstr "Марка"
+
+#. module: os_car_service
+#: model:ir.actions.act_window,name:os_car_service.action_car_service_client_car_make
+#: model:ir.ui.menu,name:os_car_service.menu_car_service_cars_client_car_makes
+msgid "Makes"
+msgstr "Марки"
+
+#. module: os_car_service
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_client__gender__male
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_person__gender__male
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_worker__gender__male
+msgid "Male"
+msgstr "Чоловіча"
+
+#. module: os_car_service
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_car_color_search
+msgid "Metallic"
+msgstr "Металік"
+
+#. module: os_car_service
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_client_car__body__minivan
+msgid "Minivan"
+msgstr "Мінівен"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car__model
+msgid "Model"
+msgstr "Модель"
+
+#. module: os_car_service
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_client_car__body__muscle
+msgid "Muscle"
+msgstr ""
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client__name
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car__name
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_color__name
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_make__name
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_invoice__name
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_person__name
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service__name
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service__name
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service_category__name
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker__name
+msgid "Name"
+msgstr "Ім'я"
+
+#. module: os_car_service
+#: model:ir.actions.server,name:os_car_service.server_action_create_invoice_wizard
+#: model:ir.ui.menu,name:os_car_service.menu_create_invoice_wizard
+msgid "New invoice"
+msgstr "Новий рахунок"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_change_service_price_wizard__price
+msgid "New price"
+msgstr "Нова ціна"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car__number
+msgid "Number"
+msgstr "Номер"
+
+#. module: os_car_service
+#: model:ir.ui.menu,name:os_car_service.menu_car_service_operations
+msgid "Operations"
+msgstr "Операції"
+
+#. module: os_car_service
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_client__gender__other
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_client_car__body__other
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_person__gender__other
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_worker__gender__other
+msgid "Other"
+msgstr "Інше"
+
+#. module: os_car_service
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_invoice_search
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_provided_service_search
+msgid "Paid"
+msgstr "Сплачено"
+
+#. module: os_car_service
+#. odoo-python
+#: code:addons/os_car_service/models/car_service_worker.py:0
+#, python-format
+msgid "Passport code must be unique."
+msgstr "Номер паспорта повинен бути унікальним."
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker__passport
+msgid "Passport(Details)"
+msgstr "Паспорт"
+
+#. module: os_car_service
+#. odoo-python
+#: code:addons/os_car_service/models/car_service_person.py:0
+#, python-format
+msgid "Person with the same phone number already exists."
+msgstr "Персона з таким номером телефону вже існує."
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client__phone
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_person__phone
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker__phone
+msgid "Phone"
+msgstr "Телефон"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client__photo
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car__photo
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_person__photo
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker__photo
+msgid "Photo"
+msgstr "Фото"
+
+#. module: os_car_service
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_client_car__body__pickup
+msgid "Pickup"
+msgstr "Пікап"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_invoice__price
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_service__price
+#: model_terms:ir.ui.view,arch_db:os_car_service.car_service_invoice_template
+msgid "Price"
+msgstr "Ціна"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service__price_total
+msgid "Price Total"
+msgstr "Загальна ціна"
+
+#. module: os_car_service
+#: model:ir.actions.report,name:os_car_service.doctor_report_id
+msgid "Print Invoice"
+msgstr "Друк рахунку"
+
+#. module: os_car_service
+#: model:ir.actions.act_window,name:os_car_service.action_car_service_provided_service
+#: model:ir.ui.menu,name:os_car_service.menu_car_service_services_provided_services
+msgid "Provided"
+msgstr "Надані"
+
+#. module: os_car_service
+#. odoo-python
+#: code:addons/os_car_service/models/car_service_client.py:0
+#: code:addons/os_car_service/models/car_service_client_car.py:0
+#: code:addons/os_car_service/models/car_service_worker.py:0
+#, python-format
+msgid "Provided Services"
+msgstr "Надані послуги"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service__worker_id
+msgid "Responsible worker"
+msgstr "Відповідальний працівник"
+
+#. module: os_car_service
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_client_car__body__roadster
+msgid "Roadster"
+msgstr "Родстер"
+
+#. module: os_car_service
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_client_car__body__suv
+msgid "SUV"
+msgstr ""
+
+#. module: os_car_service
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_client_car__body__sedan
+msgid "Sedan"
+msgstr "Седан"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client__service_ids
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car__service_ids
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_invoice__service_ids
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service__service_id
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker__service_ids
+#: model:ir.model.fields,field_description:os_car_service.field_create_invoice_wizard__service_ids
+msgid "Service"
+msgstr "Послуга"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client__service_total
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car__service_total
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker__service_total
+msgid "Service Total"
+msgstr "Усього послуг"
+
+#. module: os_car_service
+#. odoo-python
+#: code:addons/os_car_service/models/car_service_provided_service.py:0
+#, python-format
+msgid "Service amount should be 1 or bigger."
+msgstr "Кількість послуги повинна бути 1 або більше."
+
+#. module: os_car_service
+#: model:ir.actions.act_window,name:os_car_service.action_car_service_service
+#: model:ir.ui.menu,name:os_car_service.menu_car_service_services
+#: model:ir.ui.menu,name:os_car_service.menu_car_service_services_services
+#: model_terms:ir.ui.view,arch_db:os_car_service.car_service_invoice_template
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_car_form
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_car_kanban
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_form
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_client_kanban
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_worker_form
+#: model_terms:ir.ui.view,arch_db:os_car_service.view_car_service_worker_kanban
+msgid "Services"
+msgstr "Послуги"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_invoice__set_date
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_provided_service__set_date
+msgid "Set Date"
+msgstr "Дата"
+
+#. module: os_car_service
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_client_car__body__sport
+msgid "Sport"
+msgstr "Спорт"
+
+#. module: os_car_service
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_client_car__body__station-wagon
+msgid "Station Wagon"
+msgstr "Універсал"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client__surname
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_person__surname
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_worker__surname
+msgid "Surname"
+msgstr "Прізвище"
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car_color__technical_code
+msgid "Technical Code"
+msgstr "Технічний код"
+
+#. module: os_car_service
+#. odoo-python
+#: code:addons/os_car_service/models/car_service_client_car_color.py:0
+#, python-format
+msgid "Technical code must be unique."
+msgstr "Технічний код повинен бути унікальним."
+
+#. module: os_car_service
+#. odoo-python
+#: code:addons/os_car_service/models/car_service_provided_service.py:0
+#, python-format
+msgid "The car should belong to the selected client."
+msgstr "Автомобіль повинен належати обраному клієнту."
+
+#. module: os_car_service
+#: model_terms:ir.ui.view,arch_db:os_car_service.car_service_invoice_template
+msgid "Total"
+msgstr "Усього"
+
+#. module: os_car_service
+#: model:res.groups,name:os_car_service.group_car_service_user
+msgid "User"
+msgstr "Користувач"
+
+#. module: os_car_service
+#: model:ir.module.category,description:os_car_service.category_car_service
+msgid "User access levels for the Car Service"
+msgstr "Користувацькі рівні доступу для Обслуговування Автомобілів"
+
+#. module: os_car_service
+#: model:res.groups,comment:os_car_service.group_car_service_user
+msgid "Users of the Car Service (read rights)"
+msgstr "Користувачі Обслуговування Автомобілів (права читання)"
+
+#. module: os_car_service
+#: model:ir.model.fields.selection,name:os_car_service.selection__car_service_client_car__body__van
+msgid "Van"
+msgstr "Фургон"
+
+#. module: os_car_service
+#: model:ir.model,name:os_car_service.model_change_service_category_wizard
+msgid "Wizard to change service category"
+msgstr "Віщард для зміни категорії послуги"
+
+#. module: os_car_service
+#: model:ir.model,name:os_car_service.model_change_service_price_wizard
+msgid "Wizard to change service price"
+msgstr "Візард для зміни ціни послуги"
+
+#. module: os_car_service
+#: model:ir.model,name:os_car_service.model_create_invoice_wizard
+msgid "Wizard to create invoice"
+msgstr "Візард для створення рахунку"
+
+#. module: os_car_service
+#: model:res.groups,name:os_car_service.group_car_service_worker
+msgid "Worker"
+msgstr "Працівник"
+
+#. module: os_car_service
+#: model:ir.actions.act_window,name:os_car_service.action_car_service_worker
+#: model:ir.ui.menu,name:os_car_service.menu_car_service_workers
+#: model:ir.ui.menu,name:os_car_service.menu_car_service_workers_workers
+msgid "Workers"
+msgstr "Працівники"
+
+#. module: os_car_service
+#: model:res.groups,comment:os_car_service.group_car_service_worker
+msgid "Workers of the Car Service (limited rights)"
+msgstr ""
+
+#. module: os_car_service
+#: model:ir.model.fields,field_description:os_car_service.field_car_service_client_car__year
+msgid "Year"
+msgstr "Рік"
+
+#. module: os_car_service
+#. odoo-python
+#: code:addons/os_car_service/models/car_service_provided_service.py:0
+#, python-format
+msgid "You can not set a future date."
+msgstr "Ви не можете встановити майбутню дату."
+
+#. module: os_car_service
+#. odoo-python
+#: code:addons/os_car_service/models/car_service_invoice.py:0
+#, python-format
+msgid "You cannot add services from other invoices."
+msgstr "Ви не можете додавати послуги указані в інших рахунках."
+
+#. module: os_car_service
+#. odoo-python
+#: code:addons/os_car_service/models/car_service_provided_service.py:0
+#, python-format
+msgid "You cannot change invoiced services."
+msgstr "Ви не можете змінювати послуги, що вказані у рахунках."
+
+#. module: os_car_service
+#. odoo-python
+#: code:addons/os_car_service/models/car_service_invoice.py:0
+#, python-format
+msgid "You cannot change paid invoices."
+msgstr "Ви не можете змінювати сплачені рахунки."
+
+#. module: os_car_service
+#. odoo-python
+#: code:addons/os_car_service/models/car_service_invoice.py:0
+#, python-format
+msgid "You cannot specify other clients' services."
+msgstr "Ви не можете зазначати послуги для інших клієнтів."

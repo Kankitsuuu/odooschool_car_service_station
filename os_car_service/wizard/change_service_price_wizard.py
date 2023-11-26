@@ -48,4 +48,3 @@ class ChangeServicePriceWizard(models.TransientModel):
                 'price': self.price,
                 'currency_id': self.currency_id.id,
             })
-

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="provided_service_full_diagnostics_demo" model="car.service.provided.service">
+        <field name="client_id" ref="client_connors_demo"/>
+        <field name="car_id" ref="client_car_porsche_white_demo"/>
+        <field name="worker_id" ref="worker_hopkins_demo"/>
+        <field name="service_id" ref="service_full_diagnostics_demo"/>
+    </record>
+
+    <record id="provided_service_replacing_oil_demo" model="car.service.provided.service">
+        <field name="client_id" ref="client_connors_demo"/>
+        <field name="car_id" ref="client_car_porsche_white_demo"/>
+        <field name="worker_id" ref="worker_hopkins_demo"/>
+        <field name="service_id" ref="service_replacing_oil_demo"/>
+    </record>
+
+    <record id="provided_service_engine_diagnostics_demo" model="car.service.provided.service">
+        <field name="client_id" ref="client_jones_demo"/>
+        <field name="car_id" ref="client_car_lotus_blue_demo"/>
+        <field name="worker_id" ref="worker_shelby_demo"/>
+        <field name="service_id" ref="service_engine_diagnostics_demo"/>
+    </record>
+
+</odoo>

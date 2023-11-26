@@ -30,8 +30,34 @@
         <field name="email">melissa_raquel@example.com</field>
         <field name="gender">female</field>
         <field name="birth_date" eval="datetime(1980,11,5)"/>
-        <field name="address">Orange Street., Apt. 71</field>
+        <field name="address">Orange Street, Apt. 71</field>
         <field name="passport">2345678</field>
     </record>
+
+    <!-- Translation -->
+    <record id="os_car_service.worker_hopkins_demo"
+            model="car.service.worker"
+            context="{'lang': 'uk_UA'}">
+        <field name="name">Ентоні</field>
+        <field name="surname">Хопкінс</field>
+        <field name="address">Хайхілл Стріт, буд. 20</field>
+    </record>
+
+    <record id="os_car_service.worker_shelby_demo"
+            model="car.service.worker"
+            context="{'lang': 'uk_UA'}">
+        <field name="name">Томас</field>
+        <field name="surname">Шелбі</field>
+        <field name="address">Раунд Стріт, буд. 101</field>
+    </record>
+
+    <record id="os_car_service.worker_raquel_demo"
+            model="car.service.worker"
+            context="{'lang': 'uk_UA'}">
+        <field name="name">Меліса</field>
+        <field name="surname">Ракель</field>
+        <field name="address">Оранж Стріт, буд. 71</field>
+    </record>
+    <!-- End Translation -->
 
 </odoo>

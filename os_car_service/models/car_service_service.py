@@ -7,8 +7,11 @@ class CarServiceService(models.Model):
 
     name = fields.Char(
         required=True,
+        translate=True,
     )
-    description = fields.Text()
+    description = fields.Text(
+        translate=True,
+    )
     price = fields.Float(
         digits=(12, 2),
         required=True,
@@ -16,7 +19,9 @@ class CarServiceService(models.Model):
     category_id = fields.Many2one(
         comodel_name='car.service.service.category',
         required=True,
-        default=lambda self: self.env.ref('os_car_service.service_category_other'),
+        default=lambda self: self.env.ref(
+            'os_car_service.service_category_other'
+        ),
     )
     currency_id = fields.Many2one(
         comodel_name='res.currency',

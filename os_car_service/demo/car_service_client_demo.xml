@@ -25,4 +25,27 @@
         <field name="gender">male</field>
     </record>
 
+    <!-- Translation -->
+    <record id="os_car_service.client_bill_demo"
+            model="car.service.client"
+            context="{'lang': 'uk_UA'}">
+        <field name="name">Ендрю</field>
+        <field name="surname">Білл</field>
+    </record>
+
+    <record id="os_car_service.client_connors_demo"
+            model="car.service.client"
+            context="{'lang': 'uk_UA'}">
+        <field name="name">Сара</field>
+        <field name="surname">Коннорс</field>
+    </record>
+
+    <record id="os_car_service.client_jones_demo"
+            model="car.service.client"
+            context="{'lang': 'uk_UA'}">
+        <field name="name">Джон</field>
+        <field name="surname">Джонс</field>
+    </record>
+    <!-- End Translation -->
+
 </odoo>

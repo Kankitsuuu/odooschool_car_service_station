@@ -13,4 +13,24 @@
         <field name="name">Service</field>
     </record>
 
+    <!-- Translation -->
+    <record id="os_car_service.service_category_other"
+            model="car.service.service.category"
+            context="{'lang': 'uk_UA'}">
+        <field name="name">Інше</field>
+    </record>
+
+    <record id="os_car_service.service_category_diagnostics"
+            model="car.service.service.category"
+            context="{'lang': 'uk_UA'}">
+        <field name="name">Діагностика</field>
+    </record>
+
+    <record id="os_car_service.service_category_service"
+            model="car.service.service.category"
+            context="{'lang': 'uk_UA'}">
+        <field name="name">Обслуговування</field>
+    </record>
+    <!-- End Translation -->
+
 </odoo>

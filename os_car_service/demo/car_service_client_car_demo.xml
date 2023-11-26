@@ -4,7 +4,7 @@
     <record id="client_car_bmw_black_demo" model="car.service.client.car">
         <field name="client_id" ref="client_bill_demo"/>
         <field name="make_id" ref="client_car_make_bmw_demo"/>
-        <field name="color_id" ref="client_car_color_jet_black_demo"/>
+        <field name="color_id" ref="client_car_color_jet_black"/>
         <field name="body">suv</field>
         <field name="number">AA1111AA</field>
         <field name="model">X5</field>
@@ -14,7 +14,7 @@
     <record id="client_car_porsche_white_demo" model="car.service.client.car">
         <field name="client_id" ref="client_connors_demo"/>
         <field name="make_id" ref="client_car_make_porsche_demo"/>
-        <field name="color_id" ref="client_car_color_pure_white_demo"/>
+        <field name="color_id" ref="client_car_color_pure_white"/>
         <field name="body">suv</field>
         <field name="number">AA2222AA</field>
         <field name="model">Cayenne</field>
@@ -24,7 +24,7 @@
     <record id="client_car_lotus_blue_demo" model="car.service.client.car">
         <field name="client_id" ref="client_jones_demo"/>
         <field name="make_id" ref="client_car_make_lotus_demo"/>
-        <field name="color_id" ref="client_car_color_ultramarine_blue_demo"/>
+        <field name="color_id" ref="client_car_color_ultramarine_blue"/>
         <field name="body">roadster</field>
         <field name="number">AA3333AA</field>
         <field name="model">Elise</field>

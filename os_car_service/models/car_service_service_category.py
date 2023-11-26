@@ -7,4 +7,5 @@ class CarServiceServiceCategory(models.Model):
 
     name = fields.Char(
         required=True,
+        translate=True,
     )

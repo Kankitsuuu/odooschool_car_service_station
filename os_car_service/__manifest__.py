@@ -2,8 +2,7 @@
     'name': 'Car Service',
     'version': '16.0.0.0.1',
     'category': 'Extra Tools',
-    'summary': """Car service station automation module 
-    """,
+    'summary': "Car service station automation module",
     'license': 'LGPL-3',
     'author': 'Yaroslav Artiushenko',
     'website': 'https://github.com/Kankitsuuu',
@@ -39,6 +38,8 @@
         'demo/car_service_client_car_make_demo.xml',
         'demo/car_service_client_car_demo.xml',
         'demo/car_service_service_demo.xml',
+        'demo/car_service_provided_service_demo.xml',
+        'demo/car_service_invoice_demo.xml',
     ],
     'support': 'artiuschenko01@gmail.com',
     'application': False,

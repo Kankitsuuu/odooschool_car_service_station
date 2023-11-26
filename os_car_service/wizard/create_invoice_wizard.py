@@ -31,7 +31,7 @@ class CreateInvoiceWizard(models.TransientModel):
                     client_id = service.client_id.id
                     service_ids.append(service.id)
                     continue
-                elif client_id == service.client_id.id:
+                if client_id == service.client_id.id:
                     service_ids.append(service.id)
         # open wizard form with default data
         return {

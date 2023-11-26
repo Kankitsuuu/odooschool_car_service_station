@@ -8,11 +8,14 @@ class CarServiceClientCarColor(models.Model):
 
     name = fields.Char(
         required=True,
+        translate=True,
     )
     technical_code = fields.Char(
         required=True,
     )
-    description = fields.Char()
+    description = fields.Char(
+        translate=True,
+    )
     is_metallic = fields.Boolean(
         default=True,
     )

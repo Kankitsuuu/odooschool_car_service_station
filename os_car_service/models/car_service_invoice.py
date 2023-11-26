@@ -40,7 +40,8 @@ class CarServiceInvoice(models.Model):
         as hash string from set_date and client_id
         """
         for invoice in self:
-            name_data = f"{invoice.set_date.strftime('%Y-%m-%d %H:%M:%s')}{invoice.client_id.id}"
+            name_data = (f"{invoice.set_date.strftime('%Y-%m-%d %H:%M:%s')}"
+                         f"{invoice.client_id.id}")
             name = hashlib.sha512(name_data.encode()).hexdigest()
             invoice.name = name[:10].upper()
 
@@ -78,7 +79,7 @@ class CarServiceInvoice(models.Model):
                         "You cannot specify other clients' services."
                     ))
                 # check if services already invoiced
-                elif service.invoice_id:
+                if service.invoice_id:
                     raise ValidationError(_(
                         'You cannot add services from other invoices.'
                     ))
@@ -105,7 +106,10 @@ class CarServiceInvoice(models.Model):
             # set invoice_id as False for current services
             for invoice in self:
                 for service in invoice.service_ids:
-                    service.invoice_id = False
+                    service.write(
+                        {'invoice_id': False},
+                        from_invoice=True
+                    )
         return res
 
     def unlink(self):

@@ -31,7 +31,6 @@
         <field name="arch" type="xml">
            <pivot display_quantity="1">
                <field name="client_id" type="row"/>
-               <field name="set_date" type="col" interval="year"/>
                <field name="set_date" type="col" interval="month"/>
            </pivot>
         </field>

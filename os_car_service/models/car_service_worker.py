@@ -12,6 +12,7 @@ class CarServiceWorker(models.Model):
     )
     address = fields.Char(
         required=True,
+        translate=True,
     )
     passport = fields.Char(
         string='Passport(Details)',

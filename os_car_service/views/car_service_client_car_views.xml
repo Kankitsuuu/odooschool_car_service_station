@@ -122,6 +122,13 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_services"
+                                type="object"
+                                icon="fa-wrench">
+                            <field string="Services" name="service_total" widget="statinfo"/>
+                        </button>
+                    </div>
                     <field name="photo" class="oe_avatar" options="{'size': [250, 180]}" widget="image"/>
                     <div class="oe_title">
                         <label for="make_id"/>

@@ -65,7 +65,8 @@ class CarServiceProvidedService(models.Model):
         as hash string from set_date and client_id
         """
         for service in self:
-            name_data = f"{service.set_date.strftime('%Y-%m-%d')}{service.client_id.id}"
+            name_data = (f"{service.set_date.strftime('%Y-%m-%d')}"
+                         f"{service.client_id.id}")
             name = hashlib.sha512(name_data.encode()).hexdigest()
             service.name = name[:8].upper()
 
@@ -79,7 +80,7 @@ class CarServiceProvidedService(models.Model):
     def _compute_is_invoiced(self):
         """Compute is invoiced field"""
         for service in self:
-            service.is_invoiced = True if service.invoice_id else False
+            service.is_invoiced = bool(service.invoice_id)
 
     # Constraint methods
     @api.constrains('amount')
@@ -119,12 +120,14 @@ class CarServiceProvidedService(models.Model):
         self.client_id = self.car_id.client_id
 
     # CRUD methods
-    def write(self, vals):
+    def write(self, vals, from_invoice: bool = False):
         """
         Write method
+        Change allowed from invoice write method
         (User can change only uninvoiced services)
         """
-        self.check_is_invoiced()
+        if not from_invoice:
+            self.check_is_invoiced()
         return super(CarServiceProvidedService, self).write(vals)
 
     def unlink(self):
